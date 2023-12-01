@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Day 1",
+            "type": "python",
+            "request": "launch",
+            "cwd" : "${workspaceFolder}/d1",
+            "program": "${workspaceFolder}/d1/solution.py"
+        }
+    ]
+}
