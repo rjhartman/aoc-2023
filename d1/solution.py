@@ -46,7 +46,8 @@ def find_number(line: str, reverse: bool) -> int:
 
         if not spellings:
             spellings = NUMBER_SPELLINGS[:]
-            while window := window[:-1] if reverse else window[1:]:
+            while len(window) > 1:
+                window = window[:-1] if reverse else window[1:]
                 if any(
                     (
                         (s.endswith if reverse else s.startswith)(window)
@@ -54,8 +55,6 @@ def find_number(line: str, reverse: bool) -> int:
                     )
                 ):
                     break
-            else:
-                window = c
 
 
 def solution_p2() -> int:
