@@ -27,10 +27,7 @@ def solution_p1() -> int:
     total = 0
     for line in open("input.txt", "r", encoding="utf-8"):
         id, sets = parse_line(line)
-        for s in sets:
-            if not is_valid_set(s):
-                break
-        else:
+        if all(is_valid_set(s) for s in sets):
             total += int(id)
     return total
 
