@@ -40,7 +40,6 @@ def solution_p1():
                 for i, j in get_surrounding_coordinates(x, y):
                     if lines[j][i].isdigit():
                         number, start = get_number(lines[j], i)
-                        print(f"Number {number} at {i},{j}")
                         numbers[(start, j)] = number
     return sum(numbers.values())
 
