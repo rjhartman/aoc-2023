@@ -1,28 +1,24 @@
 from typing import Tuple, List
 from functools import reduce
 
-DIGITS = set(range(10))
-
 
 def is_symbol(char: str) -> bool:
     return not (char.isdigit() or char == ".")
 
 
 def get_number(line: str, start: int) -> Tuple[int, int]:
-    number = line[start]
-    begin = start
-    i = start - 1
-    while i >= 0 and (c := line[i]).isdigit():
-        number = c + number
-        begin = i
-        i -= 1
-
-    j = start + 1
-    while j < len(line) and (c := line[j]).isdigit():
+    number = ""
+    for c in line[start:]:
+        if not c.isdigit():
+            break
         number += c
-        j += 1
 
-    return int(number), begin
+    for i, c in enumerate(reversed(line[:start])):
+        if not c.isdigit():
+            break
+        number = c + number
+
+    return int(number), (start - i) + 1
 
 
 def get_surrounding_coordinates(x: int, y: int) -> List[Tuple[int, int]]:
@@ -44,6 +40,7 @@ def solution_p1():
                 for i, j in get_surrounding_coordinates(x, y):
                     if lines[j][i].isdigit():
                         number, start = get_number(lines[j], i)
+                        print(f"Number {number} at {i},{j}")
                         numbers[(start, j)] = number
     return sum(numbers.values())
 
