@@ -7,8 +7,8 @@ REGEX = r"Card\s+(?P<card_number>\d)+: (?P<winning>.*) \| (?P<held>.*)"
 
 def get_winning_numbers(card: str) -> Set[str]:
     match = re.search(REGEX, card)
-    winning = set(match["winning"].strip().split(" "))
-    held = set(match["held"].strip().split(" "))
+    winning = set(match["winning"].split(" "))
+    held = set(match["held"].split(" "))
     winning.discard("")
     held.discard("")
     return winning.intersection(held)
