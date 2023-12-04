@@ -7,6 +7,13 @@
             "request": "launch",
             "cwd" : "${workspaceFolder}/d1",
             "program": "${workspaceFolder}/d1/solution.py"
+        },
+        {
+            "name": "Day 4",
+            "type": "python",
+            "request": "launch",
+            "cwd" : "${workspaceFolder}/d4",
+            "program": "${workspaceFolder}/d4/solution.py"
         }
     ]
 }
