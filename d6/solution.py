@@ -13,7 +13,7 @@ def solution_p1():
     total = 1
     for time, distance in zip(times, distances):
         valid_times = []
-        for i in range(0, time + 1):
+        for i in range(time):
             if (time - i) * i > distance:
                 valid_times.append(i)
         total *= len(valid_times)
@@ -29,7 +29,7 @@ def solution_p2():
     time = total_line(lines[0])
     distance = total_line(lines[1])
     total = 0
-    for i in range(0, time + 1):
+    for i in range(time):
         if (time - i) * i > distance:
             total += 1
     return total
