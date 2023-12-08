@@ -1,12 +1,12 @@
 import re
 import math
 
-REGEX = r"(?P<source>[A-Z]+) = \((?P<left>[A-Z]+), (?P<right>[A-Z]+)\)"
+REGEX = r"(?P<source>[A-Z]+) = \((?P<L>[A-Z]+), (?P<R>[A-Z]+)\)"
 
 
 def parse_line(line: str):
     match = re.search(REGEX, line)
-    return match["source"], {"L": match["left"], "R": match["right"]}
+    return match["source"], match
 
 
 def get_distance(start, mappings, directions):
